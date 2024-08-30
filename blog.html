@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSphere</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        #search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #search-bar input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            max-width: 500px;
+            border: 2px solid #feb47b;
+            border-radius: 25px;
+            font-size: 1em;
+        }
+
+        #search-bar input[type="text"]:focus {
+            outline: none;
+            border-color: #ff7e5f;
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .post {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .post:hover {
+            transform: translateY(-10px);
+        }
+
+        .post h2 {
+            margin-top: 0;
+            color: #ff7e5f;
+        }
+
+        button {
+            background-color: #ff7e5f;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #feb47b;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroll-up {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #ff7e5f;
+            color: #fff;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .scroll-up:hover {
+            background-color: #feb47b;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BlogSphere</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="search-bar">
+            <input type="text" placeholder="Search blog posts...">
+        </div>
+    </header>
+    <main>
+        <article class="post">
+            <h2>Welcome to BlogSphere</h2>
+            <p>This is a dynamic and user-friendly blog platform for sharing ideas and engaging with content.</p>
+            <button onclick="toggleContent('content1')">Read More</button>
+            <div id="content1" class="hidden">
+                <p>Additional content about BlogSphere can be placed here.</p>
+            </div>
+        </article>
+        <article class="post">
+            <h2>Another Blog Post</h2>
+            <p>Here's another post with more interesting content.</p>
+            <button onclick="toggleContent('content2')">Read More</button>
+            <div id="content2" class="hidden">
+                <p>More detailed information about the topic of this post.</p>
+            </div>
+        </article>
+    </main>
+    <button class="scroll-up" onclick="scrollToTop()">↑</button>
+    <footer>
+        <p>&copy; 2024 BlogSphere. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+            } else {
+                content.classList.add('hidden');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
